@@ -43,7 +43,7 @@ public class TestBase {
 	  		driver.findElement(By.linkText("group page")).click();
 	}
 
-	protected void submitGroupCreation() {
+	protected void submitCreation() {
 		
 			driver.findElement(By.name("submit")).click();
 	}
@@ -106,5 +106,42 @@ public class TestBase {
 	      acceptNextAlert = true;
 	    }
 	  }
+
+	protected void returnToHomePage() {
+		driver.findElement(By.linkText("home page")).click();
+	}
+
+	protected void fillNewContactForm(ContactData contact) {
+		driver.findElement(By.name("firstname")).clear();
+	    driver.findElement(By.name("firstname")).sendKeys(contact.firstName);
+	    driver.findElement(By.name("lastname")).clear();
+	    driver.findElement(By.name("lastname")).sendKeys(contact.lastName);
+	    driver.findElement(By.name("address")).clear();
+	    driver.findElement(By.name("address")).sendKeys(contact.address);
+	    driver.findElement(By.name("home")).clear();
+	    driver.findElement(By.name("home")).sendKeys(contact.phoneHome);
+	    driver.findElement(By.name("mobile")).clear();
+	    driver.findElement(By.name("mobile")).sendKeys(contact.phoneMobile);
+	    driver.findElement(By.name("work")).clear();
+	    driver.findElement(By.name("work")).sendKeys(contact.phoneWork);
+	    driver.findElement(By.name("email")).clear();
+	    driver.findElement(By.name("email")).sendKeys(contact.firstEmail);
+	    driver.findElement(By.name("email2")).clear();
+	    driver.findElement(By.name("email2")).sendKeys(contact.secondEmail);
+	    // не понимаю как спраивться с менюшками
+	    // new Select(driver.findElement(By.name("bday"))).selectByVisibleText(contact.bDay);
+	    // new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(contact.bMonth);
+	    driver.findElement(By.name("byear")).clear();
+	    driver.findElement(By.name("byear")).sendKeys(contact.bYear);
+	    // new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contact.contactGroup);
+	    driver.findElement(By.name("address2")).clear();
+	    driver.findElement(By.name("address2")).sendKeys(contact.secondAddress);
+	    driver.findElement(By.name("phone2")).clear();
+	    driver.findElement(By.name("phone2")).sendKeys(contact.secondPhone);
+	}
+
+	protected void goToNewContactPage() {
+		driver.findElement(By.linkText("add new")).click();
+	}
 
 }

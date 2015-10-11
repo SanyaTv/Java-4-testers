@@ -15,7 +15,7 @@ public class NonEmptyGroupCreationTests extends TestBase {
 	    group.footer = "footer 1";
 	    
 		fillGroupForm(group);
-	    submitGroupCreation();
+	    submitCreation();
 	    returnToGroupsPage();
 	  }
 }

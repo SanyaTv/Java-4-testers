@@ -10,7 +10,7 @@ public class EmptyGroupCreationTests extends TestBase {
     goToGroupsPage();
     initGroupsCreation();
     fillGroupForm(new GroupData("", "", ""));
-    submitGroupCreation();
+    submitCreation();
     returnToGroupsPage();
   }
 }
