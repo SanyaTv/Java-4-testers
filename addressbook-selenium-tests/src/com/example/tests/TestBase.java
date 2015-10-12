@@ -14,6 +14,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.support.ui.Select;
 
 public class TestBase {
 
@@ -128,12 +129,11 @@ public class TestBase {
 	    driver.findElement(By.name("email")).sendKeys(contact.firstEmail);
 	    driver.findElement(By.name("email2")).clear();
 	    driver.findElement(By.name("email2")).sendKeys(contact.secondEmail);
-	    // не понимаю как спраивться с менюшками
-	    // new Select(driver.findElement(By.name("bday"))).selectByVisibleText(contact.bDay);
-	    // new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(contact.bMonth);
+	    new Select(driver.findElement(By.name("bday"))).selectByVisibleText(contact.bDay);
+	    new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(contact.bMonth);
 	    driver.findElement(By.name("byear")).clear();
 	    driver.findElement(By.name("byear")).sendKeys(contact.bYear);
-	    // new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contact.contactGroup);
+	    new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contact.contactGroup);
 	    driver.findElement(By.name("address2")).clear();
 	    driver.findElement(By.name("address2")).sendKeys(contact.secondAddress);
 	    driver.findElement(By.name("phone2")).clear();
