@@ -4,11 +4,10 @@ import org.testng.annotations.Test;
 
 public class NonEmptyContactCreation extends TestBase {
 
-
   @Test
   public void testNonEmptyContactCreation() throws Exception {
-	openMainPage();
-    goToNewContactPage();
+	app.getNavigationHelper().openMainPage();
+    app.getContactHelper().initContactCreation();
     ContactData contact = new ContactData();
 	contact.firstName = "John";
 	contact.lastName = "Doe";
@@ -24,9 +23,9 @@ public class NonEmptyContactCreation extends TestBase {
 	contact.contactGroup = "group name 1";
 	contact.secondPhone = "666666";			
 	contact.secondAddress = "Kingston666";
-    fillNewContactForm(contact);
-    submitCreation();
-    returnToHomePage();
+    app.getContactHelper().fillNewContactForm(contact);
+    app.getContactHelper().submitContactCreation();
+    app.getContactHelper().returnToHomePage();
     
   }
   
