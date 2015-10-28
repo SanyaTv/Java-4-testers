@@ -28,9 +28,7 @@ public class EmptyGroupCreationTests extends TestBase {
     List<GroupData> newList = app.getGroupHelper().getGroups();
     
     
-    // compare states
-    assertEquals(newList.size(), oldList.size() + 1);
-    
+    // compare states    
     oldList.add(group);
     Collections.sort(oldList);
     assertEquals(newList, oldList);

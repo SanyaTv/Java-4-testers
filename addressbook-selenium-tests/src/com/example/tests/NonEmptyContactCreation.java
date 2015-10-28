@@ -1,5 +1,9 @@
 package com.example.tests;
 
+import java.util.Collections;
+import java.util.List;
+import static org.testng.Assert.assertEquals;
+
 import org.testng.annotations.Test;
 
 public class NonEmptyContactCreation extends TestBase {
@@ -7,6 +11,11 @@ public class NonEmptyContactCreation extends TestBase {
   @Test
   public void testNonEmptyContactCreation() throws Exception {
 	app.getNavigationHelper().openMainPage();
+	
+	// save old state
+	List<ContactData> oldList = app.getContactHelper().getContacts();
+	
+	//actions
     app.getContactHelper().initContactCreation();
     ContactData contact = new ContactData();
 	contact.firstName = "John";
@@ -26,6 +35,16 @@ public class NonEmptyContactCreation extends TestBase {
     app.getContactHelper().fillNewContactForm(contact);
     app.getContactHelper().submitContactCreation();
     app.getContactHelper().returnToHomePage();
+    
+    // save new state
+	List<ContactData> newList = app.getContactHelper().getContacts();    
+    
+    // compare states
+    assertEquals(newList.size(), oldList.size() + 1);
+    
+    oldList.add(contact);
+    Collections.sort(oldList);
+    assertEquals(newList, oldList);
     
   }
   
