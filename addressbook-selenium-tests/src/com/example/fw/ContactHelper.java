@@ -64,17 +64,19 @@ public class ContactHelper extends HelperBase {
 	}
 
 
- 	public List<ContactData> getContacts() {
-		List<ContactData> contacts = new ArrayList<ContactData>();
-		List<WebElement> rows = driver.findElements(By.name("entry"));
-		List<WebElement> cells = rows.get(1).findElements(By.tagName("td"));
-		for (WebElement cell : cells) {
-			ContactData contact = new ContactData();
-			contact.firstName = cell.getText();
-			contact.lastName = cell.getText();
-			contacts.add(contact);					
-		}
-		return contacts;
+	public List<ContactData> getContacts() {
+        List<ContactData> contacts = new ArrayList<ContactData>();
+        List<WebElement> rows = driver.findElements(By.name("entry"));
+        for ( int rowI = 1 ; rowI < rows.size() ; rowI++ ) {
+              WebElement row = rows.get(rowI);
+              List<WebElement> cells = row.findElements(By.tagName("td"));
+              ContactData contact = new ContactData();
+              contact.lastName = cells.get(1).getText();
+              contact.firstName = cells.get(2).getText();
+              contacts.add(contact);                                                                
+        }
+        return contacts;
+
 
 	}
 
