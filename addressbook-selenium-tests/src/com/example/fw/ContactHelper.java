@@ -48,8 +48,9 @@ public class ContactHelper extends HelperBase {
 		click(By.linkText("home page"));
 	}
 
-	public void initEditContact() {
-		click(By.xpath("//td[7]/a/img"));		
+	public void initEditContact(int index) {
+		//click(By.xpath("//td[" + (index+1) +"]/a/img"));
+		click(By.xpath("//*[@id='maintable']/tbody/tr[" + (index+1) +"]/td[7]/a/img"));
 	}
 	
 	public void deleteContact() {
@@ -67,7 +68,7 @@ public class ContactHelper extends HelperBase {
 	public List<ContactData> getContacts() {
         List<ContactData> contacts = new ArrayList<ContactData>();
         List<WebElement> rows = driver.findElements(By.name("entry"));
-        for ( int rowI = 1 ; rowI < rows.size() ; rowI++ ) {
+        for ( int rowI = 0 ; rowI < rows.size() ; rowI++ ) {
               WebElement row = rows.get(rowI);
               List<WebElement> cells = row.findElements(By.tagName("td"));
               ContactData contact = new ContactData();

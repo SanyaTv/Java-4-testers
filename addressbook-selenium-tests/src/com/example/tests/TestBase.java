@@ -64,11 +64,10 @@ public class TestBase {
 	public String generateRandomString() {
 		Random rnd = new Random();
 		if (rnd.nextInt(3) == 0) {
-			return "BINGO";
+			return "";
 		} else {
 			return "test" + rnd.nextInt();
 		}
-	}
-  
-
+	 }
+	
 }

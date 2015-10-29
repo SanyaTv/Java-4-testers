@@ -74,9 +74,11 @@ public class ContactData implements Comparable<ContactData> {
 	}
 	@Override
 	public int compareTo(ContactData other) {
-		return this.lastName.toLowerCase().compareTo(other.lastName.toLowerCase());
-	}
-	
-	
-
+		//return (this.lastName.toLowerCase() + this.firstName.toLowerCase()).compareTo (other.lastName.toLowerCase() + other.firstName.toLowerCase());
+		int res =  lastName.toLowerCase().compareTo(other.lastName.toLowerCase());
+		if (res != 0) {
+		  return res;
+		}
+		return firstName.toLowerCase().compareTo(other.firstName.toLowerCase());
+		}	
 }
