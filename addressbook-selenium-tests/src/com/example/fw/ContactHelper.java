@@ -39,9 +39,8 @@ public class ContactHelper extends HelperBase {
 	}
 
 	public void submitContactCreation() {
-		
 		click(By.name("submit"));
-		
+		cachedContacts = null;
 	}
 
 	public void returnToHomePage() {
@@ -55,30 +54,40 @@ public class ContactHelper extends HelperBase {
 	
 	public void deleteContact() {
 		click(By.xpath("//form[2]/input[2]"));
-		
+		cachedContacts = null;
 	}
 
 
 	public void updateContactInfo() {
 		click(By.xpath("//input[11]"));
-		
+		cachedContacts = null;
+	}
+
+	
+	private List<ContactData> cachedContacts;
+	
+
+	public List<ContactData> getContacts() {
+		if (cachedContacts == null) {
+			rebuildCache();
+		}
+		return cachedContacts;
+	
 	}
 
 
-	public List<ContactData> getContacts() {
-        List<ContactData> contacts = new ArrayList<ContactData>();
+	public void rebuildCache() {
+		cachedContacts = new ArrayList<ContactData>();
+        
         List<WebElement> rows = driver.findElements(By.name("entry"));
-        for ( int rowI = 0 ; rowI < rows.size() ; rowI++ ) {
+        for ( int rowI = 1 ; rowI < rows.size() ; rowI++ ) {
               WebElement row = rows.get(rowI);
               List<WebElement> cells = row.findElements(By.tagName("td"));
               ContactData contact = new ContactData();
               contact.lastName = cells.get(1).getText();
               contact.firstName = cells.get(2).getText();
-              contacts.add(contact);                                                                
+              cachedContacts.add(contact);                                                                
         }
-        return contacts;
-
-
-	}
+     }
 
 }

@@ -6,11 +6,11 @@ import static org.testng.Assert.assertEquals;
 
 import org.testng.annotations.Test;
 
-public class NonEmptyContactCreation extends TestBase {
+public class ContactCreationTests extends TestBase {
 
   @Test(dataProvider = "randomValidContactGenerator")
   public void testContactCreationWithValidData(ContactData contact) throws Exception {
-	app.getNavigationHelper().openMainPage();
+	app.navigateTo().mainPage();
 	
 	// save old state
 	List<ContactData> oldList = app.getContactHelper().getContacts();
@@ -20,6 +20,7 @@ public class NonEmptyContactCreation extends TestBase {
     app.getContactHelper().fillNewContactForm(contact);
     app.getContactHelper().submitContactCreation();
     app.getContactHelper().returnToHomePage();
+    app.getContactHelper().rebuildCache();
     
     // save new state
 	List<ContactData> newList = app.getContactHelper().getContacts();    
