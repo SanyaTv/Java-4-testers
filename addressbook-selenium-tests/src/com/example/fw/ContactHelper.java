@@ -1,5 +1,6 @@
 package com.example.fw;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -15,10 +16,10 @@ public class ContactHelper extends HelperBase {
 	}
 
 
-	private SortedListOf<ContactData> cachedContacts;
+	private List<ContactData> cachedContacts;
 	
 
-	public SortedListOf<ContactData> getContacts() {
+	public List<ContactData> getContacts() {
 			if (cachedContacts == null) {
 			rebuildCache();
 		}
@@ -28,11 +29,11 @@ public class ContactHelper extends HelperBase {
 
 
 	public void rebuildCache() {
-		cachedContacts = new SortedListOf<ContactData>();
+		cachedContacts = new ArrayList<ContactData>();
         
 		manager.navigateTo().mainPage();
 		List<WebElement> rows = driver.findElements(By.name("entry"));
-        for ( int rowI = 1 ; rowI < rows.size() ; rowI++ ) {
+        for ( int rowI = 0 ; rowI < rows.size() ; rowI++ ) {
               WebElement row = rows.get(rowI);
               List<WebElement> cells = row.findElements(By.tagName("td"));
               ContactData contact = new ContactData();
@@ -96,7 +97,6 @@ public class ContactHelper extends HelperBase {
 
 	public ContactHelper submitContactCreation() {
 		click(By.name("submit"));
-		cachedContacts = null;
 		return this;
 	}
 
@@ -113,13 +113,11 @@ public class ContactHelper extends HelperBase {
 	
 	public ContactHelper submitContactDeletion() {
 		click(By.xpath("//form[2]/input[2]"));
-		cachedContacts = null;
 		return this;
 	}
 
 	public ContactHelper updateContactInfo() {
 		click(By.xpath("//input[11]"));
-		cachedContacts = null;
 		return this;
 	}
 }
