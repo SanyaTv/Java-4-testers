@@ -1,0 +1,50 @@
+<list>
+  <contact>
+    <firstName>test-296410880</firstName>
+    <lastName></lastName>
+    <address>test-182800588</address>
+    <phoneHome>test-1330568490</phoneHome>
+    <phoneMobile>test1051046175</phoneMobile>
+    <phoneWork>test-1086060824</phoneWork>
+    <firstEmail>test487164483</firstEmail>
+    <secondEmail></secondEmail>
+    <bDay>11</bDay>
+    <bMonth>May</bMonth>
+    <bYear>test-2012685947</bYear>
+    <contactGroup>group name 1</contactGroup>
+    <secondAddress></secondAddress>
+    <secondPhone>test2139390462</secondPhone>
+  </contact>
+  <contact>
+    <firstName>test587813509</firstName>
+    <lastName>test-1585343901</lastName>
+    <address>test495384716</address>
+    <phoneHome></phoneHome>
+    <phoneMobile>test-1702341055</phoneMobile>
+    <phoneWork>test-1324212812</phoneWork>
+    <firstEmail></firstEmail>
+    <secondEmail>test949300323</secondEmail>
+    <bDay>11</bDay>
+    <bMonth>May</bMonth>
+    <bYear>test-334710641</bYear>
+    <contactGroup>group name 1</contactGroup>
+    <secondAddress></secondAddress>
+    <secondPhone>test-572710561</secondPhone>
+  </contact>
+  <contact>
+    <firstName></firstName>
+    <lastName>test-853452058</lastName>
+    <address>test869345647</address>
+    <phoneHome>test641727093</phoneHome>
+    <phoneMobile>test-1402531711</phoneMobile>
+    <phoneWork></phoneWork>
+    <firstEmail>test1537176547</firstEmail>
+    <secondEmail></secondEmail>
+    <bDay>11</bDay>
+    <bMonth>May</bMonth>
+    <bYear>test2033465484</bYear>
+    <contactGroup>group name 1</contactGroup>
+    <secondAddress>test1771409507</secondAddress>
+    <secondPhone>test-1332598442</secondPhone>
+  </contact>
+</list>
