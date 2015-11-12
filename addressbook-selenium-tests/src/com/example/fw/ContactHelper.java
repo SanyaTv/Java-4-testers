@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.example.tests.ContactData;
-import com.example.utils.SortedListOf;
 
 public class ContactHelper extends HelperBase {
 	
