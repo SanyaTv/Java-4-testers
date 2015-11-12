@@ -1,0 +1,2 @@
+java -cp bin;C:\tools\xstream-distribution-1.4.8-bin\xstream-1.4.8\lib\xstream-1.4.8.jar;C:\tools\xstream-distribution-1.4.8-bin\xstream-1.4.8\lib\xstream\xpp3_min-1.1.4c.jar;C:\tools\xstream-distribution-1.4.8-bin\xstream-1.4.8\lib\xstream\xmlpull-1.1.3.1.jar;C:\tools\selenium-server-standalone-2.48.0.jar -DconfigFile=firefox.properties org.testng.TestNG C:\jtrain\Java-4-testers\addressbook-selenium-tests\testng-customsuite.xml
+pause
